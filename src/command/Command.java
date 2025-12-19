@@ -1,9 +1,10 @@
 package command;
 
 /**
- * Command interface for order operations.
- * This interface will define the contract for command pattern implementations.
+ * Command interface for restaurant actions.
+ * Defines the contract that all commands must implement.
  */
 public interface Command {
+    void execute();
 }
 
