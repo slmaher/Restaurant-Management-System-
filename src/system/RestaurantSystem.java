@@ -2,7 +2,7 @@ package system;
 
 public class RestaurantSystem {
     
-  RestaurantSystem instance;
+    private static RestaurantSystem instance;
   
     private RestaurantSystem() {
         System.out.println("RestaurantSystem instance created.");

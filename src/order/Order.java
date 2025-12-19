@@ -13,8 +13,8 @@ public class Order {
     private double totalPrice;
     private Payment payment; // Bridge pattern: Order uses Payment abstraction
     
-    // Constructor (package-private, used by builder)
-    Order(String orderId, List<String> items, double totalPrice, Payment payment) {
+    // Constructor (public, used by builder)
+    public Order(String orderId, List<String> items, double totalPrice, Payment payment) {
         this.orderId = orderId;
         this.items = items;
         this.totalPrice = totalPrice;
