@@ -1,6 +1,7 @@
 package builder;
 
 import order.Order;
+import bridge.Payment;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class OrderBuilder {
     private String orderId;
     private List<String> items;
     private double totalPrice;
-    private String paymentMethod;
+    private Payment payment;
     
     public OrderBuilder() {
         this.items = new ArrayList<>();
@@ -36,10 +37,10 @@ public class OrderBuilder {
         return this;
     }
     
-    // Set the payment method
-    public OrderBuilder setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-        System.out.println("Step 4: Payment method set to '" + paymentMethod + "'");
+    // Set the payment method using Bridge pattern
+    public OrderBuilder setPayment(Payment payment) {
+        this.payment = payment;
+        System.out.println("Step 4: Payment method set to '" + payment.getClass().getSimpleName() + "'");
         return this;
     }
     
@@ -47,7 +48,7 @@ public class OrderBuilder {
     public Order build() {
         System.out.println("Step 5: Building the Order object...");
         System.out.println("Order construction completed successfully!");
-        return new Order(orderId, items, totalPrice, paymentMethod);
+        return new Order(orderId, items, totalPrice, payment);
     }
 }
 
