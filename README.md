@@ -29,6 +29,7 @@ The application demonstrates the use of multiple design patterns to create a mai
 The main objectives of this project are:
 
 - Demonstrate proper use of design patterns in software development
+- Practice The concepte of design Pattern 
 - Improve code organization and maintainability
 - Separate responsibilities using object-oriented programming principles
 - Simulate basic restaurant operations including order placement, meal preparation, and payment processing
