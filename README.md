@@ -96,3 +96,77 @@ java -cp bin main.Main
 
 The application will execute and display output demonstrating all implemented design patterns in the console.
 
+## 9. How to Edit or Change Values
+
+To customize the application with different values, you can modify the `Main.java` file located in `src/main/Main.java`. Here are the main areas where you can make changes:
+
+### Changing Order Details
+
+In the Builder pattern section, you can modify:
+- **Order ID**: Change the order identifier (e.g., "ORD001" to "ORD100")
+- **Order Items**: Add or remove items from the order list
+- **Total Price**: Modify the price value (e.g., 18.99 to 25.50)
+
+Example:
+```java
+Order order1 = new OrderBuilder()
+    .setOrderId("ORD100")           // Change order ID
+    .addItem("Pasta")               // Add different items
+    .addItem("Salad")
+    .setTotalPrice(22.50)           // Change price
+    .setPayment(new CashPayment())
+    .build();
+```
+
+### Changing Payment Methods
+
+You can switch between payment types:
+- Use `new CashPayment()` for cash payments
+- Use `new CardPayment()` for card payments
+
+### Changing Order Types
+
+Modify the factory pattern section to create different order types:
+- `new DineInOrderFactory()` creates dine-in orders
+- `new TakeAwayOrderFactory()` creates take-away orders
+
+### Changing Meal Names
+
+To change meal names, edit the following files:
+- **Vegetarian Meals**: Edit `VegetarianBurger.java`, `VegetarianPizza.java`, and `VegetarianDrink.java` in `src/abstractfactory/`
+- **Non-Vegetarian Meals**: Edit `NonVegetarianBurger.java`, `NonVegetarianPizza.java`, and `NonVegetarianDrink.java` in `src/abstractfactory/`
+
+In each file, modify the `name` field in the constructor:
+```java
+this.name = "Your Custom Meal Name";
+```
+
+### Changing Command Parameters
+
+In the Command pattern section, modify the order ID used in commands:
+```java
+Command placeOrder = new PlaceOrderCommand(orderService, "ORD005");  // Change order ID
+Command prepareOrder = new PrepareOrderCommand(kitchen, "ORD005");   // Change order ID
+Command cancelOrder = new CancelOrderCommand(orderService, "ORD005"); // Change order ID
+```
+
+### Changing Chain Handler Values
+
+The Chain of Responsibility pattern processes orders automatically. To test with different orders, create a new order in the chain section:
+```java
+Order order4 = new OrderBuilder()
+    .setOrderId("ORD200")           // Change order ID
+    .addItem("Custom Item")         // Add custom items
+    .setTotalPrice(30.00)           // Change price
+    .setPayment(new CardPayment())  // Change payment method
+    .build();
+```
+
+### Important Notes
+
+- After making any changes to Java files, you must **recompile** the project using the compilation command before running
+- Changes to the `Main.java` file only require recompilation
+- Changes to other class files may require recompiling the entire project
+- Always ensure the syntax is correct to avoid compilation errors
+
+
